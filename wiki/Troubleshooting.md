@@ -38,28 +38,8 @@
 - If the error is present, check your Lutris version. This is fixed in v0.5.11. https://lutris.net/downloads
 
 
-#### Warning: Downloading [exe file] failed
-- If you get download failed errors during installation for components such as `arial32.exe`, try toggling `Prefer system libraries` in Lutris to `On`.
-
-
 #### Library version errors during installation
 - If using a rolling release or bleeding edge distro, try toggling `Prefer system libraries` in Lutris to `On`.
-
-
-#### Installer Error Code 256
-- Set `Prefer system libraries` to `On` in global lutris options.
-- Inspect install log for failed winetricks downloads or sha256 mismatch, note the URL of the files being downloaded and its destination in winetricks' cache.
-- Download each file manually to its destination in winetricks' cache.
-- Use winetricks to ensure that the prefix is set to Win10 mode.
-- Proceed with lug-helper installer.
-
-
-#### Download hangs, followed by Install Failure error
-- As mentioned in our [Quick Start Guide](https://github.com/starcitizen-lug/knowledge-base/wiki/Quick-Start-Guide), be sure you are not changing the default install path in the RSI Launcher settings. If you wish to install the game elsewhere, put the entire wine prefix there instead.
-
-
-#### Error: *utf-8 codec can't decode byte 0x_ in position ___: invalid continuation byte*
-- Re-check your EAC workaround. Our [Helper](https://github.com/starcitizen-lug/lug-helper) can check it for you, or see the [manual instructions](Tips-and-Tricks#easy-anti-cheat-workaround) on our wiki.
 
 
 #### Lutris error: *Command exited with code 512*
@@ -137,13 +117,9 @@
 - Additionally, make sure the wine prefix is not installed on an NTFS formatted partition.
 
 
-#### Game crashes with "STATUS_CRYENGINE_FATAL_ERROR" in game.log
-- Some penguins have had success changing the Windows compatibility from Win10 to Win8.1 in the Wine configuration. Select Star Citizen in Lutris, then click the Wine button at the bottom and select `Wine configuration`:  
-![](https://matrix-client.matrix.org/_matrix/media/r0/download/matrix.org/zKGOXxMOsktqYKqevqeSvYSw)  
-- In the Wine configuration, under the `Applications` tab, change `Windows version` to `Windows 8.1`
-
 #### Game crashes with "create_view: Assertion `!((UINT_PTR)base & page_mask)' failed."
 - Make sure you have set your vm.max_map_count as described in the installation section.
+
 
 #### Game crashes with " 00adntdll:FILE_GetNtStatus Converting errno 12 to STATUS_UNSUCCESSFUL "
 - Make sure you have set your vm.max_map_count as described in the installation section.
@@ -163,6 +139,7 @@
 
 #### Game crashes when going to Lorville / ArcCorp or crashes often when launching
 - Make sure you followed the guide to install Wine's dependencies and set your vm.max_map_count as described in the installation section.
+
 
 #### Game crashes on Alt+Tab
 - In game settings change display to windowed borderless
@@ -312,8 +289,7 @@
 - There is currently no known workaround other than switching cards. We recommend AMD.
 
 #### Popup saying your Nvidia graphics driver is out of date
-- Ignore or Disable DXVK NVAPI in Lutris.
-  - Right click the game -> Configure -> Runner options -> Enable DXVK-NVAPI/DLSS (set to off)
+- Use dxvk version 2.4+
 
 #### Game fails to start after clicking Launch Game on laptops with Nvidia GPU + intel graphics
 - Errors may include `DXVAVDA fatal error: could not LoadLibrary: msvproc.dll` or `Major opcode of failed request:  156 (NV-GLX)`
