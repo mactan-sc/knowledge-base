@@ -53,29 +53,23 @@ nav_external_links:
     opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
 
 color_scheme: dark
-
+callouts_opacity: 0.6
 callouts:
   note:
     title: Note
     color: blue
-    opacity: 0.6
   tip:
     title: Tip
     color: green
-    opacity: 0.6
   important:
     title: Important
     color: purple
-    opacity: 0.6
   warning:
     title: Warning
     color: yellow
-    opacity: 0.6
   caution:
     title: Caution
     color: red
-    opacity: 0.6
   highlight:
     title: Highlight
     color: grey-dk
-    opacity: 0.6
