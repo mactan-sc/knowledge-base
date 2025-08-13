@@ -18,9 +18,19 @@ plugins:
   - jekyll-github-metadata
   - jekyll-include-cache
 
+collections:
+  posts:
+    output: true      # Makes each post a standalone page
+    sort_by: date     # Sort newest first
+    permalink: /:collection/:name
+
 just_the_docs:
   custom_css:
     - custom
+  collections:
+    posts:
+      name: Posts     # Sidebar section title
+      nav_exclude: false
 
 search_enabled: true
 search:
