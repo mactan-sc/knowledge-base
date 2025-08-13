@@ -33,6 +33,7 @@ just_the_docs:
       nav_fold: true
       nav_exclude: false
       search_exclude: true
+      nav_order: 8
 
 search_enabled: true
 search:
