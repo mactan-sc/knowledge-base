@@ -30,8 +30,9 @@ just_the_docs:
   collections:
     posts:
       name: Posts     # Sidebar section title
-      nav_order: 1
+      nav_fold: true
       nav_exclude: false
+      search_exclude: true
 
 search_enabled: true
 search:
