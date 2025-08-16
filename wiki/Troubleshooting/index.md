@@ -11,7 +11,7 @@ nav_order: 3
 {: .important-title }
 Check our [latest news](/#news) for known temporary issues, workarounds, and runner/dxvk/driver requirements (especially Nvidia users!)
 
-## 🛠️ Troubleshooting Steps
+## ⚒️ Troubleshooting Steps
 
 ### First things to try
 1. Make sure our [LUG Helper](/Tips-and-Tricks#how-to-run-the-lug-helper)'s Preflight Check passes all checks.
