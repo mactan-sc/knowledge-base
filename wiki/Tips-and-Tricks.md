@@ -94,6 +94,12 @@ If you're new to Linux and looking for something "plug and play", we recommend a
 3. Alternatively, locate the `sc-launch.sh` file in your Wine prefix directory (by default, `~/Games/star-citizen/sc-launch.sh`) and open it for editing.
 
 
+## How to update the launch script
+1. Run the [LUG Helper](#how-to-run-the-lug-helper) and select the `Maintenance and Troubleshooting` menu
+2. Choose the option to `Update launch script`
+   ![Update launch script](https://github.com/user-attachments/assets/e0925912-1c89-4eb2-9dae-5dbd3fe9806e){: style="display: block;max-height: 300px;" }
+
+
 ## How to get a Wine maintenance shell using the launch script
 1. In a terminal, navigate to your Star Citizen wine prefix directory. By default, this is `~/Games/star-citizen`
 2. Verify that `sc-launch.sh` exists.
@@ -191,8 +197,7 @@ pl_pit.forceSoftwareCursor = 1
 
   
 - If using any alternate third party launcher, remove the EAC environment variable in the launcher's settings for the game
-- If using a LUG Helper install then use the LUG Helper Maintenance menu option to "Update launch script" to remove the previous environment variable workaround.
-       ![Update launch script](https://github.com/user-attachments/assets/e0925912-1c89-4eb2-9dae-5dbd3fe9806e){: style="display: block;max-height: 300px;" }
+- If using a LUG Helper wine install then [update the launch script](#how-to-update-the-launch-script) to remove the previous environment variable workaround.  
        Alternatively, select "Edit launch script" and manually remove the EAC environment variable: `EOS_USE_ANTICHEATCLIENTNULL=1`
 - If you have any other EAC workarounds in place, remove them as well.
 
