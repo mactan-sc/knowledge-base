@@ -10,9 +10,9 @@ nav_order: 5
 We strongly recommend choosing a distro that has up-to-date packages and a solid maintenance reputation.  
 
 The following distributions make our 👍 list and generally work well with Star Citizen:
+- Fedora
 - Arch
 - EndeavourOS (Arch-based)
-- Fedora
 - openSUSE Tumbleweed
 - Debian Testing
 - Ubuntu (*only the latest non-LTS release*)
@@ -24,18 +24,16 @@ The following distributions make our 👎 list and generally pose additional cha
 - Ubuntu LTS
 - Mint (based on Ubuntu LTS)
 - Pop!_OS (based on Ubuntu LTS)
-- Zorin (based on Ubuntu LTS)
+- Zorin (based on very old Ubuntu LTS)
 - Drauger OS
 - openSUSE Leap
 - Manjaro
 
-We do not recommend 👎 LTS distros. *LTS releases and out of date distros are likely to cause many headaches.* LTS ≠ stable. LTS just means old packages locked to a specific major version which only receive security updates. This is great for servers but terrible for gaming where new features and fixes are important. #LTSbadjustdontplskthx  
+We do not recommend 👎 LTS distros. *LTS releases and out of date distros will likely require extra knowledge and effort to get Star Citizen running.* Note that LTS ≠ stable in the traditional sense. LTS distros typically lock their packages to specific major versions which then only receive security updates. This is great for servers but problematic for gaming where new drivers, features, and fixes are important.
 
-We do not recommend 👎 most gaming-focused distributions as many of our Penguins have had issues installing the required dependencies to make Star Citizen run. They generally have only an individual or a very small team backing them and, at least where Star Citizen is concerned, do not live up to the promise.  We especially suggest avoiding Pop!_OS and Drauger OS due to irresolvable compatibility issues
+We do not recommend 👎 most gaming-focused distributions as many of our Penguins have had issues getting Star Citizen to run. They generally have only an individual or a very small team backing them and, at least where Star Citizen is concerned, don't offer much benefit beyond our recommended distros for most Penguins.
 
-Other distributions we suggest avoiding 👎 due to frequent package incompatibilities, old dependencies, and update issues are: Manjaro, Ubuntu LTS, Mint (based on Ubuntu LTS), Debian Stable, and openSUSE Leap.
-
-If you're new to Linux, we recommend avoiding immutable distros such as Bazzite, Nix, Silverblue, Universal Blue, etc for now; they come with a steeper learning curve and are better suited to those with more experience.
+If you're new to Linux and looking for something "plug and play", we recommend avoiding immutable distros such as Bazzite, Silverblue, Nix, etc for now; they come with a slightly steeper learning curve.
 
 
 ## Recommended Runners
@@ -133,9 +131,9 @@ Custom wine runners will not work out of the box if the system wine install does
 ## RSI Launcher Manual Update
 1. Download the [latest](https://robertsspaceindustries.com/download) RSI Launcher installer
 2. Enter a [Wine maintenance shell](Tips-and-Tricks#how-to-get-a-wine-maintenance-shell-using-the-launch-script) for your prefix using the `sc-launch.sh` script.
-3. Then run the following command:
+3. Then, run the following command (be sure to type the correct download path):
     ```
-    WINEDLLOVERRIDES="dxwebsetup.exe,dotNetFx45_Full_setup.exe=d" wine "~/Downloads/RSI Launcher-Setup-2.6.0.exe" /S
+    WINEDLLOVERRIDES="dxwebsetup.exe,dotNetFx45_Full_setup.exe=d" wine "/path/to/downloaded/RSI Launcher-Setup-2.6.0.exe" /S
     ```
 
 
@@ -185,15 +183,18 @@ pl_pit.forceSoftwareCursor = 1
 1. Use RSI Launcher 2.5.1 or newer
 2. Use the latest [LUG Helper](#how-to-add-a-wine-runner) to switch to a LUG-Wine runner
 3. Ensure there are no symlinks or special characters in the path to your Wine prefix
-4. Remove all old EAC workarounds if you have them:
-    1. Use the LUG Helper Maintenance menu option to "Update launch script" to remove the previous environment variable workaround.
+4. Remove all possible old EAC workarounds, check for each one to see if it exists:
+    - Environment variable `EOS_USE_ANTICHEATCLIENTNULL=1`
+    - Hosts entry in file named `/etc/hosts` with the value `127.0.0.1 modules-cdn.eac-prod.on.epicgames.com #Star Citizen EAC workaround`
+5. In the RSI Launcher, navigate to `Settings -> Games -> LIVE -> Game Location`. If you previously manually applied the Z:\ path workaround, restore the game location to its default C:\ path:  
+       ![Game path in launcher](https://github.com/user-attachments/assets/0ac1ed3a-4c3c-43b9-b93a-a4865e63f784){: style="display: block;max-height: 250px;" }
+
+  
+- If using any alternate third party launcher, remove the EAC environment variable in the launcher's settings for the game
+- If using a LUG Helper install then use the LUG Helper Maintenance menu option to "Update launch script" to remove the previous environment variable workaround.
        ![Update launch script](https://github.com/user-attachments/assets/e0925912-1c89-4eb2-9dae-5dbd3fe9806e){: style="display: block;max-height: 300px;" }
        Alternatively, select "Edit launch script" and manually remove the EAC environment variable: `EOS_USE_ANTICHEATCLIENTNULL=1`
-    2. If using Lutris or another third party launcher, remove the above EAC environment variable from its settings.
-    3. In the RSI Launcher, navigate to `Settings -> Games -> LIVE -> Game Location`. If you previously manually applied the Z:\ path workaround, restore the game location to its default C:\ path:  
-       ![Game path in launcher](https://github.com/user-attachments/assets/0ac1ed3a-4c3c-43b9-b93a-a4865e63f784){: style="display: block;max-height: 250px;" }
-    4. Remove EAC line from `/etc/hosts` file: `127.0.0.1 modules-cdn.eac-prod.on.epicgames.com #Star Citizen EAC workaround`
-    5. If you have any other EAC workarounds in place, remove them as well.
+- If you have any other EAC workarounds in place, remove them as well.
 
 
 ## Wine Wayland
@@ -203,8 +204,11 @@ pl_pit.forceSoftwareCursor = 1
 
 - Experimental Wine Wayland
   - Use a Wine without **staging** in the name
-  - Add environment variable `export DISPLAY=` to unset it to empty
-  - Add RSI Launcher.exe argument ` --in-process-gpu`
+  - Edit the [launch script](#how-to-edit-the-launch-script) to add environment variable `export DISPLAY=` to unset it to empty
+  - Add RSI Launcher.exe argument ` --in-process-gpu` example:
+    ```
+    "$wine_path"/wine "C:\Program Files\Roberts Space Industries\RSI Launcher\RSI Launcher.exe" --in-process-gpu > "$launch_log" 2>&1
+    ```
 - Experimental Proton Wayland
   - Add environment variable `PROTON_ENABLE_WAYLAND=1`
   - Add RSI Launcher.exe argument ` --in-process-gpu`
@@ -232,63 +236,31 @@ Run `wayland-info|grep color` in a terminal, if you **do not** see `wp_color_man
 - Enable HDR with flag `--hdr-enabled`
 
 
-## Automatically Disable/Re-Enable Mouse Acceleration
-Lutris can automatically toggle on/off a flat mouse acceleration profile with the following configuration.
+## Pre-launch and Post-exit Scripts
+The [launch script](#how-to-edit-the-launch-script) installed by the LUG Helper has a commented out example for how to run pre-launch and post-exit scripts. These scripts can be used to launch utilities like antimicrox, opentrack, etc., or disable/re-enable mouse acceleration for more precise FPS handling.
 
-Configure the game within Lutris and go to `System options`. Make sure `Show advanced options` is checked.  
-Add the following to the `Pre-launch script` and `Post-exit script` fields.  
-Alternatively, see [below](#lutris-pre-launch-and-post-exit-scripts) for a sample script file that incorporates this and other pre-launch tweaks.
-
-**Gnome**
-
-`/usr/bin/sh -c "gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat"`
-
-`/usr/bin/sh -c "gsettings set org.gnome.desktop.peripherals.mouse accel-profile default"`
-
-**KDE**
-
-`/usr/bin/sh -c 'kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" true'`
-
-`/usr/bin/sh -c 'kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" false'`
-
-
-## Lutris Pre-launch and Post-exit Scripts
-Below are sample pre-launch and post-exit scripts that incorporate the mouse acceleration settings [described above](#automatically-disablere-enable-mouse-acceleration).
-To use them, create `sc-prelaunch.sh` and `sc-postexit.sh` in your wine prefix, uncomment the appropriate mouse acceleration lines based on your desktop environment, then configure Lutris to use the scripts:
-- `Right click the game->Configure->System options` and set `Pre-launch script` to `/path/to/wine/prefix/sc-pre-launch.sh`
-- `Right click the game->Configure->System options` and set `Post-exit script` to `/path/to/wine/prefix/sc-post-exit.sh`
-- Enable `Wait for pre-launch script completion`
+Some examples:
 
 _sc-prelaunch.sh_
 ```bash
 #!/bin/bash
-############################################
-## Lutris pre-launch script for Star Citizen
-############################################
-
 ## Disable Mouse Acceleration
+
 ## GNOME
-#gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
+# gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
 
 ## KDE
-#kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" true
-
-## End Mouse Acceleration
+# kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" true
 ```
 
 _sc-postexit.sh_
 ```bash
 #!/bin/bash
-###########################################
-## Lutris post-exit script for Star Citizen
-###########################################
-
 ## Reset Mouse Acceleration
+
 ## Gnome
-#gsettings set org.gnome.desktop.peripherals.mouse accel-profile default
+# gsettings set org.gnome.desktop.peripherals.mouse accel-profile default
 
 ## KDE
-#kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" false
-
-## End Mouse Acceleration
+# kwriteconfig5 --file "kcminputrc" --group "Mouse" --key "XLbInptAccelProfileFlat" false
 ```
