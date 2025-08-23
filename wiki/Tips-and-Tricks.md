@@ -186,10 +186,10 @@ pl_pit.forceSoftwareCursor = 1
 >
 > Check the [latest news](/#general-news) for any wine changes
 
-{: .important}
+{: .important }
 >
-> - If using any alternate launcher, remove the EAC environment variable in the game's settings in the launcher
-> - If using a LUG Helper wine install then [update the launch script](#how-to-update-the-launch-script) to remove the previous environment variable workaround.  
+>  If using any alternate launcher, remove the EAC environment variable in the game's settings in the launcher
+>  If using a LUG Helper wine install then [update the launch script](#how-to-update-the-launch-script) to remove the previous environment variable workaround.  
        Alternatively, [edit the launch script](#how-to-edit-the-launch-script) to manually remove the EAC environment variable: `EOS_USE_ANTICHEATCLIENTNULL=1`
 
 1. Use RSI Launcher 2.5.1 or newer
