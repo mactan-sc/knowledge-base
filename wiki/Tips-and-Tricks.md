@@ -187,9 +187,10 @@ pl_pit.forceSoftwareCursor = 1
 > Check the [latest news](/#general-news) for any wine changes
 
 1. Use RSI Launcher 2.5.1 or newer
-2. Use the latest [LUG Helper](#how-to-add-a-wine-runner) to switch to a LUG-Wine runner
-3. Ensure there are no symlinks or special characters in the path to your Wine prefix
-4. Remove any EAC workarounds, check for each one to see if it exists
+2. Ensure there are no symlinks or special characters in the path to your Wine prefix
+3. Use the latest [LUG Helper](#how-to-add-a-wine-runner) to switch to a LUG-Wine runner
+4. [Update your launch script](#how-to-update-the-launch-script)
+5. Remove any EAC workarounds by [editing your launch script](#how-to-edit-the-launch-script) or your game launcher settings, check for each one to see if it exists
     - Environment variable `EOS_USE_ANTICHEATCLIENTNULL=1`
     - Hosts entry in file named `/etc/hosts` with the value
       ```
