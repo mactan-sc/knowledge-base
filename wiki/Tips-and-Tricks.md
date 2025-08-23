@@ -186,19 +186,20 @@ pl_pit.forceSoftwareCursor = 1
 >
 > Check the [latest news](/#general-news) for any wine changes
 
+{: .important}
+>
+> - If using any alternate launcher, remove the EAC environment variable in the game's settings in the launcher
+> - If using a LUG Helper wine install then [update the launch script](#how-to-update-the-launch-script) to remove the previous environment variable workaround.  
+       Alternatively, [edit the launch script](#how-to-edit-the-launch-script) to manually remove the EAC environment variable: `EOS_USE_ANTICHEATCLIENTNULL=1`
+
 1. Use RSI Launcher 2.5.1 or newer
 2. Use the latest [LUG Helper](#how-to-add-a-wine-runner) to switch to a LUG-Wine runner
 3. Ensure there are no symlinks or special characters in the path to your Wine prefix
-4. Remove any EAC workarounds, check for each one to see if it exists:
+4. Remove any EAC workarounds, check for each one to see if it exists
     - Environment variable `EOS_USE_ANTICHEATCLIENTNULL=1`
     - Hosts entry in file named `/etc/hosts` with the value `127.0.0.1 modules-cdn.eac-prod.on.epicgames.com #Star Citizen EAC workaround`
-5. In the RSI Launcher, navigate to `Settings -> Games -> LIVE -> Game Location`. If you previously manually applied the Z:\ path workaround, restore the game location to its default C:\ path:  
+    - In the RSI Launcher, navigate to `Settings -> Games -> LIVE -> Game Location`. If you previously used the Z:\ path workaround, put it back to the default C:\ path:  
        ![Game path in launcher](https://github.com/user-attachments/assets/0ac1ed3a-4c3c-43b9-b93a-a4865e63f784){: style="display: block;max-height: 250px;" }  
-
-
-- If using any alternate launcher, remove the EAC environment variable in the game's settings in the launcher
-- If using a LUG Helper wine install then [update the launch script](#how-to-update-the-launch-script) to remove the previous environment variable workaround.  
-       Alternatively, [edit thee launch script](#how-to-edit-the-launch-script) to manually remove the EAC environment variable: `EOS_USE_ANTICHEATCLIENTNULL=1`
 
 
 ## Wine Wayland
