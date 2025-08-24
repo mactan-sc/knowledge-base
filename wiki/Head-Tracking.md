@@ -134,7 +134,7 @@ Now you should be able to access your VM from the following URL:
 3. Modify the opentrack Output setting to use "UDP over network" and enter the docker internal IP address of your host. If the IP address below does not work then do a nslookup on host.docker.internal from your Windows VM to find the correct IP address.
 4. Click on Start to send tracking data to your Linux host via UDP.
 
-    ![opentrack Windows config](/assets/images/opentrack-udp-remote-address.webp){: style="display: block;max-width: 550px;" }
+    ![opentrack Windows config](https://cdn.jsdelivr.net/gh/mactan-sc/knowledge-base@main/wiki/assets/images/opentrack-udp-remote-address.webp){: style="display: block;max-width: 550px;" }
 c
 ### Opentrack configuration (Linux Host)
 1. [Follow the instructions above](#opentrack-configuration) to set up opentrack with support for wine
@@ -143,7 +143,7 @@ c
 4. Update your Filter and Mapping configuration to match your Windows VM
 5. You now should be able to launch Star Citizen and enable tracking
 
-    ![opentrack Linux config](/assets/images/opentrack-udp.webp){: style="display: block;max-width: 600px;" }
+    ![opentrack Linux config](https://cdn.jsdelivr.net/gh/mactan-sc/knowledge-base@main/wiki/assets/images/opentrack-udp.webp){: style="display: block;max-width: 600px;" }
 
 ### Automatically start tracking on Windows VM boot
 You can configure windows to autostart Tobii Game Hub and opentrack so that you can just run docker compose up to enable tracking with one command.
@@ -152,4 +152,4 @@ You can configure windows to autostart Tobii Game Hub and opentrack so that you 
 2. Create a shortcut to opentrack with the target "C:\Program Files (x86)\opentrack\opentrack.exe"
 3. Setup opentrack to start tracking on launch by adding an entry under Options > Game detection with the value of "opentrack.exe". Make sure to select the "Start profiles from game executable names in this list" checkbox
 
-    ![opentrack Linux autostart](/assets/images/opentrack-vm-autostart.webp){: style="display: block;max-width: 550px;" }
+    ![opentrack Linux autostart](https://cdn.jsdelivr.net/gh/mactan-sc/knowledge-base@main/wiki/assets/images/opentrack-vm-autostart.webp){: style="display: block;max-width: 550px;" }

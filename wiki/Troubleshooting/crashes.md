@@ -47,7 +47,7 @@ nav_order: 2
 
 ## Game crashes after clicking 'Verify'
 - Make sure Star Citizen is installed on drive "C:\" Check the "Library Folder" option in the launcher settings:
-![Star Citizen launcher](/assets/images/rsilauncher-default-path.webp)
+![Star Citizen launcher](https://cdn.jsdelivr.net/gh/mactan-sc/knowledge-base@main/wiki/assets/images/rsilauncher-default-path.webp)
 - Additionally, make sure the wine prefix is not installed on an NTFS formatted partition.oh keep in mind might be interesting to see what the model produces
 
 

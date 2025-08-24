@@ -123,5 +123,5 @@ This is a generic error code representing any issue with logging in to CIG serve
 3. Use the LUG Helper's `Manage Runners` option to select a wine with **staging** in the name. Check the [latest news](/#general-news) for wine info 
 4. Use the LUG Helper Maintenance menu `Open Wine prefix configuration` button to run winecfg
 5. Select your language from the list and enable scancode auto-detection
- ![staging_input_menu](/assets/images/keyboard-language.webp)
+ ![staging_input_menu](https://cdn.jsdelivr.net/gh/mactan-sc/knowledge-base@main/wiki/assets/images/keyboard-language.webp)
 
