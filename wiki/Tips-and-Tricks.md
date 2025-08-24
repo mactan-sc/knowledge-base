@@ -90,14 +90,14 @@ If you're new to Linux and looking for something "plug and play", we recommend a
 ## How to edit the launch script
 1. Run the [LUG Helper](#how-to-run-the-lug-helper) and select the `Maintenance and Troubleshooting` menu
 2. Choose the option to `Edit launch script`  
-   ![Edit launch script](https://github.com/user-attachments/assets/6f30b732-3406-4c59-b23b-32bbccacc5ae){: style="display: block;max-height: 350px;" }
+   ![Edit launch script](/assets/images/edit-launch-script.webp){: style="display: block;max-height: 350px;" }
 3. Alternatively, locate the `sc-launch.sh` file in your Wine prefix directory (by default, `~/Games/star-citizen/sc-launch.sh`) and open it for editing.
 
 
 ## How to update the launch script
 1. Run the [LUG Helper](#how-to-run-the-lug-helper) and select the `Maintenance and Troubleshooting` menu
 2. Choose the option to `Update launch script`
-   ![Update launch script](https://github.com/user-attachments/assets/e0925912-1c89-4eb2-9dae-5dbd3fe9806e){: style="display: block;max-height: 300px;" }
+   ![Update launch script](/assets/images/update-launch-script.webp){: style="display: block;max-height: 300px;" }
 
 
 ## How to get a Wine maintenance shell using the launch script
@@ -197,7 +197,7 @@ pl_pit.forceSoftwareCursor = 1
       127.0.0.1 modules-cdn.eac-prod.on.epicgames.com #Star Citizen EAC workaround
       ```
     - In the RSI Launcher, navigate to `Settings -> Games -> LIVE -> Game Location`. If you previously used the Z:\ path workaround, put it back to the default C:\ path  
-       ![Game path in launcher](https://github.com/user-attachments/assets/0ac1ed3a-4c3c-43b9-b93a-a4865e63f784){: style="display: block;max-height: 250px;" }  
+       ![Game path in launcher](/assets/images/rsilauncher-default-path.webp){: style="display: block;max-height: 250px;" }  
 
 
 ## Wine Wayland
