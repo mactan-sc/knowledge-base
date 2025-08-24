@@ -39,9 +39,9 @@ jobs:
           destination: ./_site
       - name: Clean sitemap
         run: |
+          sudo chown -R $USER:$USER ./_site
           if [ -f ./_site/sitemap.xml ]; then
-            sed 's/ xmlns:xsi="[^"]*" xsi:schemaLocation="[^"]*"//g' ./_site/sitemap.xml > ./sitemap.tmp
-            cp ./sitemap.tmp ./_site/sitemap.xml
+            sed -i 's/ xmlns:xsi="[^"]*" xsi:schemaLocation="[^"]*"//g' ./_site/sitemap.xml
           fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
