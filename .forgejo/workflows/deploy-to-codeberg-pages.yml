@@ -1,0 +1,67 @@
+name: Deploy Jekyll to Codeberg Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '.github/**'
+      - '.forgejo/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: codeberg-small-lazy
+    steps:
+      - name: Checkout
+        uses: https://code.forgejo.org/actions/checkout@v7
+
+      - name: Rewrite image urls
+        run: |
+          sudo chown -R $USER:$USER ./wiki || true
+          find ./wiki -name '*.md' -exec sed -i 's|(/assets/images/|(https://cdn.jsdelivr.net/gh/starcitizen-lug/knowledge-base@main/wiki/assets/images/|g' {} +
+
+      - name: Setup Ruby
+        run: apt-get update && apt-get install -y ruby ruby-dev
+
+      - name: Install dependencies
+        run: |
+          gem install jekyll -v '~> 4.4'
+          gem install webrick -v '~> 1.8'
+          gem install \
+            jekyll-default-layout \
+            jekyll-feed \
+            jekyll-github-metadata \
+            jekyll-include-cache \
+            jekyll-redirect-from \
+            jekyll-remote-theme \
+            jekyll-seo-tag \
+            jekyll-sitemap
+
+      - name: Build Jekyll
+        run: |
+          cd wiki
+          jekyll build -s . -d ../_site
+
+      - name: Prepare site
+        run: |
+          sudo chown -R $USER:$USER ./_site
+          if [ -f ./_site/sitemap.xml ]; then
+            sed -i 's/ xmlns:xsi="[^"]*" xsi:schemaLocation="[^"]*"//g' ./_site/sitemap.xml
+          fi
+
+      - name: Clean-URL rewrites
+        run: |
+          cd _site
+          : > _redirects
+          find . -type f -name '*.html' ! -name 'index.html' ! -name '404.html' -print | while read -r f; do
+            rel="${f#./}"; printf '%-64s %s 200\n' "/${rel%.html}" "/$rel" >> _redirects
+          done
+
+      - name: Deploy to Codeberg Pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: 'https://wiki.edgetransit.dev'
+          server: codeberg.page
+          token: ${{ forge.token }}
+          source: _site/
