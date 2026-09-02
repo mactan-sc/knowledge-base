@@ -15,9 +15,10 @@ Join our in-game meetups every week for laid-back fun, good company, and plenty 
 {: .tip-title }
 > Join us!
 >
-> - Join our org on [Spectrum](https://robertsspaceindustries.com/orgs/LUG)!
-> - Join us on [Discord](https://discord.gg/meCFYPj)!
-> - Join us in-game for our weekly meetups, [Saturdays at 2000 UTC](https://robertsspaceindustries.com/spectrum/community/LUG/forum/149/thread/let-s-have-an-in-game-lug-meetup-when-3-5-0-releas){:target="_blank"}! (Join the org to open Spectrum links)
+> - 🐧 Join our org on {% include external_link.html title="Spectrum" url="https://robertsspaceindustries.com/orgs/LUG" %}
+> - 🗨 Join us on {% include external_link.html title="Discord" url="https://discord.gg/meCFYPj" %}
+> - 📅 Join us in-game for our weekly meetups, {% include external_link.html title="Saturdays at 2000 UTC" url="https://robertsspaceindustries.com/spectrum/community/LUG/forum/149/thread/let-s-have-an-in-game-lug-meetup-when-3-5-0-releas" %}  
+>      (Join the org to open Spectrum links)
 
 ## Community rules
 

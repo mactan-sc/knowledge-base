@@ -17,6 +17,15 @@ li.nav-list-item.external {
   }
 }
 
+// Formatting for external links include
+a.external-link > svg {
+  width: $sp-4;
+  height: $sp-4;
+  vertical-align: text-bottom;
+  margin-left: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+
 // Heights for .site-header at media-queries (in rem)
 $header-heights: (
   default: 2rem,    // below xs
